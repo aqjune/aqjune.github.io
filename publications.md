@@ -1,6 +1,7 @@
 ## Publications
 
 1. _A Validated Semantics for LLVM IR_. Ph.D. Thesis. ([link](https://sf.snu.ac.kr/juneyoung.lee/thesis/))
+
 2. _An SMT Encoding of LLVM's Memory Model for Bounded Translation Validation_.<br/>
 <u>J. Lee</u>, D. Kim, C-K. Hur, N. P. Lopes. CAV 2021. ([link](https://sf.snu.ac.kr/publist/#2021))
 
@@ -18,7 +19,7 @@ CAV 2019, Tool Paper. ([link](https://sf.snu.ac.kr/aliveinlean))
 OOPSLA 2018. ([link](https://sf.snu.ac.kr/llvmtwin))
 
 6. _Crellvm: Verified Credible Compilation for LLVM_.<br/>
-J. Kang*, Y. Kim*, Y. Song*, <u>J. Lee</u>, S. Park, M. D. Shin, Y. Kim, S. Cho, J. Choi,
+J. Kang\*, Y. Kim\*, Y. Song\*, <u>J. Lee</u>, S. Park, M. D. Shin, Y. Kim, S. Cho, J. Choi,
 C-K. Hur, K. Yi. PLDI 2018. ([link](https://sf.snu.ac.kr/crellvm))
 
 7. _Taming Undefined Behavior in LLVM_.<br/>

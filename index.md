@@ -31,9 +31,7 @@ and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) 
 ## Professional Activities
 
 * Talk, "Undef and Poison: Present and Future", The 2020 Virtual LLVM Developers' Meeting, *Keynote Talk*  ([link](https://llvm.org/devmtg/2020-09/schedule/))
-
 * Talk, "Safely Optimizing Casts between Pointers and Integers": 2019 European LLVM developers' meeting, Student Research Competition, Second Prize
-
 - Artifact Evaluation Committee, CAV 2020
 
 ## Awards and Honors
@@ -47,7 +45,6 @@ and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) 
 
 - Sep, 2021 ~ now: Software engineer, CryptoLab.
   * I'm serving a mandatory military service by working for this company as well (~ Aug, 2022).
-
 - May ~ Aug, 2019 : Intern, Program Analysis Team at Apple (Cupertino).
 - Feb ~ Apr, 2018 : Research intern, Programming Principles and Tools Group at Microsoft Research (Cambridge, UK).
 
