@@ -4,7 +4,7 @@ I'm a software engineer at [CryptoLab](https://www.cryptolab.co.kr/eng/),
 a pioneering company for developing homomorphic encryption frameworks.
 
 I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
-[Seoul National University](https://en.snu.ac.kr/).
+[Seoul National University](https://en.snu.ac.kr/) in August, 2021.
 When I was a graduate student, I worked on clarifying the semantics of the intermediate
 representation of [the LLVM compiler infrastructure](https://llvm.org) and
 implementing compiler optimization validators.
