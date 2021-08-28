@@ -1,37 +1,56 @@
-## Welcome to GitHub Pages
+# Juneyoung Lee (이준영), Ph.D.
 
-You can use the [editor on GitHub](https://github.com/aqjune/aqjune.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+I'm a software engineer at [CryptoLab](https://www.cryptolab.co.kr/eng/),
+a pioneering company for developing homomorphic encryption frameworks.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
+[Seoul National University](https://en.snu.ac.kr/).
+When I was a graduate student, I worked on clarifying the semantics of the intermediate
+representation of [the LLVM compiler infrastructure](https://llvm.org) and
+implementing compiler optimization validators.
+I actively sent patches to LLVM
+([commits](https://github.com/llvm/llvm-project/commits?author=aqjune)/[patches](https://reviews.llvm.org/differential/query/ZDmAEKkUFLzv/#R))
+and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) ([online](https://alive2.llvm.org/)), an automatic optimization validator ([pull requests]((https://github.com/AliveToolkit/alive2/pulls?q=is%3Apr+author%3Aaqjune))).
 
-### Markdown
+<img src="assets/img/email.jpeg" alt="aqjune gmail" width="400"/>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Education
 
-```markdown
-Syntax highlighted code block
+- Ph.D. in Computer Science and Engineering, [Seoul National University](https://en.snu.ac.kr/) (2016. Mar ~ 2021. Aug)
+  * Advisors: [Chung-Kil Hur](https://sf.snu.ac.kr/gil.hur/), [Nuno. P. Lopes](https://web.ist.utl.pt/nuno.lopes/).
+  * Thesis: [A Validated Semantics for LLVM IR](https://sf.snu.ac.kr/juneyoung.lee/thesis/)
 
-# Header 1
-## Header 2
-### Header 3
+- B.S. in Computer Science and Engineering, minor in Life Science, [POSTECH](https://www.postech.ac.kr/eng/), magna cum laude (~ 2014. 8)
 
-- Bulleted
-- List
+## Interests
 
-1. Numbered
-2. List
+- Programming languages, compiler verification (esp. _translation validation_)
+- Theorem proving using SMT solvers and interactive theorem provers
+- Homomorphic encryption (new!)
 
-**Bold** and _Italic_ and `Code` text
+## Professional Activities
 
-[Link](url) and ![Image](src)
-```
+* Talk, "Undef and Poison: Present and Future", The 2020 Virtual LLVM Developers' Meeting, *Keynote Talk*  ([link](https://llvm.org/devmtg/2020-09/schedule/))
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+* Talk, "Safely Optimizing Casts between Pointers and Integers": 2019 European LLVM developers' meeting, Student Research Competition, Second Prize
 
-### Jekyll Themes
+- Artifact Evaluation Committee, CAV 2020
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aqjune/aqjune.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Awards and Honors
 
-### Support or Contact
+- 2021 College of Engineering, SNU, Best Thesis Award
+- 2019 European LLVM developers' meeting, Student Research Competition, Second Prize
+- 2017 Mar – 2021. Aug. Graduate Student Scholarship. Korea Foundation for Advanced Studies.
+- 2012 ACM International Collegiate Programming Contest (ICPC) Regional Contest Daejeon, 5th place (team name DIPLOMATICS, [link](http://icpckorea.org/2012-daejeon/regional))
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Industrial Experience
+
+- Sep, 2021 ~ now: Software engineer, CryptoLab.
+  * I'm serving a mandatory military service by working for this company as well (~ Aug, 2022).
+
+- May ~ Aug, 2019 : Intern, Program Analysis Team at Apple (Cupertino).
+- Feb ~ Apr, 2018 : Research intern, Programming Principles and Tools Group at Microsoft Research (Cambridge, UK).
+
+## Publications
+
+- Go to [the publications page](/publications.md)
