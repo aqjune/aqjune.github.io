@@ -36,7 +36,7 @@ and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) 
 
 ## Industrial Experience
 
-- Sep, 2021 ~ now: Software engineer, CryptoLab.
+- Sep, 2021 ~ now: Research engineer, CryptoLab.
   * I'm serving a mandatory military service by working for this company as well (~ Aug, 2022).
   * If you are interested in working with CryptoLab, please feel free to send a mail to me!
 - May ~ Aug, 2019 : Intern, Program Analysis Team at Apple (Cupertino).
