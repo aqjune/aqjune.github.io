@@ -1,6 +1,6 @@
 # Juneyoung Lee (이준영), Ph.D.
 
-I'm a software engineer at [CryptoLab](https://www.cryptolab.co.kr/eng/),
+I'm a research engineer at [CryptoLab](https://www.cryptolab.co.kr/eng/),
 a pioneering company for developing homomorphic encryption frameworks.
 
 I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
