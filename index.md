@@ -10,7 +10,7 @@ representation of [the LLVM compiler infrastructure](https://llvm.org) and
 implementing compiler optimization validators.
 I actively sent patches to LLVM
 ([commits](https://github.com/llvm/llvm-project/commits?author=aqjune)/[patches](https://reviews.llvm.org/differential/query/ZDmAEKkUFLzv/#R))
-and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) ([online](https://alive2.llvm.org/)), an automatic optimization validator ([pull requests]((https://github.com/AliveToolkit/alive2/pulls?q=is%3Apr+author%3Aaqjune))).
+and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) ([online](https://alive2.llvm.org/)), an automatic optimization validator ([pull requests](https://github.com/AliveToolkit/alive2/pulls?q=is%3Apr+author%3Aaqjune)).
 
 <img src="assets/img/email.jpeg" alt="aqjune gmail" width="400"/>
 
