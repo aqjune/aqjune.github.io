@@ -14,7 +14,7 @@ I actively sent patches to LLVM
 and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) ([online](https://alive2.llvm.org/)), an automatic optimization validator ([pull requests](https://github.com/AliveToolkit/alive2/pulls?q=is%3Apr+author%3Aaqjune)).
 
 <img src="assets/img/email.png" alt="aqjune gmail" width="350"/> / 
-<img src="assets/img/email_old.png" alt="aqjune gmail" width="300"/>
+<img src="assets/img/email_old.png" alt="aqjune gmail" width="280"/>
 
 ## Education
 
