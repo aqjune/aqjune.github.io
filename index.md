@@ -2,6 +2,7 @@
 
 I'm a research engineer at [CryptoLab](https://www.cryptolab.co.kr/eng/),
 a pioneering company for developing homomorphic encryption frameworks.
+I am developing a compiler for fast homomorphic encryption.
 
 I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 [Seoul National University](https://en.snu.ac.kr/) in August, 2021.
