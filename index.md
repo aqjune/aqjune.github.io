@@ -16,6 +16,10 @@ and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) 
 <img src="assets/img/email.png" alt="aqjune gmail" width="350"/> / 
 <img src="assets/img/email_old.png" alt="aqjune gmail" width="280"/>
 
+**News: I am hiring interns who will work on developing a compiler for HE!
+I am sure that it will be a great experience for you. :)
+Please contact me if you are interested.**
+
 ## Education
 
 - Ph.D. in Computer Science and Engineering, [Seoul National University](https://en.snu.ac.kr/) (2016. Mar ~ 2021. Aug)
