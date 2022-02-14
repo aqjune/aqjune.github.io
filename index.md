@@ -17,7 +17,7 @@ and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) 
 <img src="assets/img/email_old.png" alt="aqjune gmail" width="280"/>
 
 **News: I am hiring interns who will work on developing a compiler for HE!
-I am sure that it will be a great experience for you. :)
+I am sure that it will be a great experience. :)
 Please contact me if you are interested.**
 
 ## Education
