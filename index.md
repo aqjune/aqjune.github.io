@@ -25,6 +25,7 @@ Please contact me if you are interested.**
 - Ph.D. in Computer Science and Engineering, [Seoul National University](https://en.snu.ac.kr/) (2016. Mar ~ 2021. Aug)
   * Advisors: [Chung-Kil Hur](https://sf.snu.ac.kr/gil.hur/), [Nuno. P. Lopes](https://web.ist.utl.pt/nuno.lopes/).
   * Thesis: [A Validated Semantics for LLVM IR](https://sf.snu.ac.kr/juneyoung.lee/thesis/)
+      - Recipient of Best Thesis Award from College of Engineering, SNU *(one thesis chosen per dept.)*
 
 - B.S. in Computer Science and Engineering, minor in Life Science, [POSTECH](https://www.postech.ac.kr/eng/), magna cum laude (~ 2014. 8)
 
