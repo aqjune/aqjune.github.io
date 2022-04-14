@@ -17,7 +17,7 @@ and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) 
 <img src="assets/img/email_old.png" alt="aqjune gmail" width="280"/>
 
 **News**
-- I gave a talk "Prototyping a compiler for homomorphic encryption using MLIR" at LLVM-CGO 2022! ([link](https://llvm.org/devmtg/2022-04-03/#prototyping-compiler))
+- Apr. 3: I gave a talk "Prototyping a compiler for homomorphic encryption using MLIR" at LLVM-CGO 2022! ([link](https://llvm.org/devmtg/2022-04-03/#prototyping-compiler))
 
 ## Education
 
