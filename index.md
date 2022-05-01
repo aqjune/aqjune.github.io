@@ -18,6 +18,7 @@ and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) 
 
 **News**
 - Apr. 3: I gave a talk "Prototyping a compiler for homomorphic encryption using MLIR" at LLVM-CGO 2022! ([link](https://llvm.org/devmtg/2022-04-03/#prototyping-compiler))
+- May. 2: My paper "SMT-based Translation Validation for Machine Learning Compiler" has been conditionally accepted to CAV'22.
 
 ## Education
 
