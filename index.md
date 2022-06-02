@@ -17,8 +17,9 @@ and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) 
 <img src="assets/img/email_old.png" alt="aqjune gmail" width="280"/>
 
 **News**
-- Apr. 3: I gave a talk "Prototyping a compiler for homomorphic encryption using MLIR" at LLVM-CGO 2022! ([link](https://llvm.org/devmtg/2022-04-03/#prototyping-compiler))
-- May. 2: My paper "SMT-based Translation Validation for Machine Learning Compiler" has been conditionally accepted at CAV'22.
+- May. 10: I gave a talk "Prototyping a compiler for homomorphic encryption using MLIR" at [LLVM-CGO 2022](https://llvm.org/devmtg/2022-04-03/#prototyping-compiler) and [EuroLLVM 2022](https://llvm.org/devmtg/2022-05/).
+- Jun. 2: My paper "SMT-based Translation Validation for Machine Learning Compiler" has been accepted at **CAV'22**.
+
 
 ## Education
 
@@ -33,15 +34,15 @@ and participated in developing [Alive2](https://github.com/AliveToolkit/alive2) 
 
 - Programming languages, compiler verification (esp. _translation validation_)
 - Theorem proving using SMT solvers and interactive theorem provers
-- Homomorphic encryption (new!)
+- Compiler for homomorphic encryption
 
-## Activities and Experience
+## Awards, Activities and Experience
 
 - Go to [my activities and experience](/activities-and-experience.md)
 
 ## Publications
 
-- Go to [the publications page](/publications.md)
+- Go to [the publications page](/publications.md) or [Google Scholar](https://scholar.google.com/citations?user=cqNgFT4AAAAJ&hl=en)
 
 ## Blog Posts
 
