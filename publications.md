@@ -1,6 +1,7 @@
 ## Publications
 
-1. _A Validated Semantics for LLVM IR_. Ph.D. Thesis. ([link](https://sf.snu.ac.kr/juneyoung.lee/thesis/))
+1. _SMT-based Translation Validation for Machine Learning Compiler_.<br/>
+S. Bang, S. Nam, I. Chun, H. Y. Jhoo, <u>J. Lee</u>. CAV 2022.
 
 2. _An SMT Encoding of LLVM's Memory Model for Bounded Translation Validation_.<br/>
 <u>J. Lee</u>, D. Kim, C-K. Hur, N. P. Lopes. CAV 2021. ([link](https://sf.snu.ac.kr/publist/#2021))
@@ -30,3 +31,5 @@ PLDI 2017. ([link](https://sf.snu.ac.kr/freeze))
 H. Kim, <u>J. Lee</u>, S. S. Bhowmick, W-S. Han, J. Lee, S. Ko, and M. H.A. Jarrah.
 SIGMOD 2016. ([link](https://sites.google.com/a/dblab.postech.ac.kr/postechdblab/home/publications))
 
+
+- Thesis: _A Validated Semantics for LLVM IR_. ([link](https://sf.snu.ac.kr/juneyoung.lee/thesis/))
