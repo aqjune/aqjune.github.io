@@ -24,4 +24,5 @@
 
 ## Professional Activities
 
-- Artifact Evaluation Committee, CAV 2020
+- APLAS 2022: External Reviewer
+- CAV 2020: Artifact Evaluation Committee
