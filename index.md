@@ -1,5 +1,7 @@
 # Juneyoung Lee (이준영), Ph.D.
 
+**From Oct 24, I will work at Automated Reasoning Group in AWS (Austin, TX) as an applied scientist. :)**
+
 I'm a research engineer at [CryptoLab](https://www.cryptolab.co.kr/eng/),
 a pioneering company for developing homomorphic encryption frameworks.
 I am developing a compiler for fast homomorphic encryption.
