@@ -24,6 +24,7 @@
 
 ## Professional Activities
 
+- CAV 2023: Program Committee
 - VSTTE 2022: External Reviewer
 - APLAS 2022: External Reviewer
 - CAV 2020: Artifact Evaluation Committee
