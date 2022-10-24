@@ -1,10 +1,9 @@
 # Juneyoung Lee (이준영), Ph.D.
 
-**From Oct 24, I will work at Automated Reasoning Group in AWS (Austin, TX) as an applied scientist. :)**
+I am an Applied Scientist at Automated Reasoning Group in AWS (Austin, TX).
 
-I'm a research engineer at [CryptoLab](https://www.cryptolab.co.kr/eng/),
-a pioneering company for developing homomorphic encryption frameworks.
-I am developing a compiler for fast homomorphic encryption.
+Previously, I was a research engineer [CryptoLab](https://www.cryptolab.co.kr/en/home/), a pioneering company for developing homomorphic encryption frameworks.
+I also fulfilled my military service in an alternative form.
 
 I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 [Seoul National University](https://en.snu.ac.kr/) in August, 2021.
@@ -17,12 +16,13 @@ I actively sent patches to LLVM
 to (1) make LLVM IR semantics abide by a formal definition, and (2) resolve performance issues of the generated machine code after my patches.
 I also participated in developing [Alive2](https://github.com/AliveToolkit/alive2) ([https://alive2.llvm.org/](https://alive2.llvm.org/)), an automatic optimization validator ([pull requests](https://github.com/AliveToolkit/alive2/pulls?q=is%3Apr+author%3Aaqjune)).
 
-<img src="assets/img/email.png" alt="aqjune gmail" width="350"/> / 
-<img src="assets/img/email_old.png" alt="aqjune gmail" width="280"/>
+E-mail: aqjune@gmail.com, juneyoung.lee@sf.snu.ac.kr (old)
 
-**News**
+**News (2022)**
 - May. 10: I gave a talk "Prototyping a compiler for homomorphic encryption using MLIR" at [LLVM-CGO 2022](https://llvm.org/devmtg/2022-04-03/#prototyping-compiler) and [EuroLLVM 2022](https://llvm.org/devmtg/2022-05/).
 - Jun. 2: My paper "SMT-based Translation Validation for Machine Learning Compiler" has been accepted at **CAV'22**.
+- Oct. 2: I will serve as a PC for CAV'23.
+- Oct. 24: I joined Automated Reasoning Group at AWS (Austin, TX).
 
 
 ## Education
@@ -39,6 +39,7 @@ I also participated in developing [Alive2](https://github.com/AliveToolkit/alive
 - Programming languages, compiler verification (esp. _translation validation_)
 - Theorem proving using SMT solvers and interactive theorem provers
 - Compiler for homomorphic encryption
+- Verification of cryptographic libraries
 
 ## Awards, Activities and Experience
 
