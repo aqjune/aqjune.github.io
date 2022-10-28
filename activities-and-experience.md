@@ -8,7 +8,8 @@
 
 ## Industrial Experience
 
-- Sep, 2021 ~ now: Research engineer, CryptoLab (Seoul, Korea).
+- Oct, 2022 ~ now: Applied Scientist, AWS (Austin, TX, USA)
+- Sep, 2021 ~ Sep, 2022: Research engineer, CryptoLab (Seoul, Korea).
   * I'm serving a mandatory military service by working for this company as well (~ Aug, 2022).
 - May ~ Aug, 2019 : Intern, Program Analysis Team at Apple (Cupertino, US).
 - Feb ~ Apr, 2018 : Research intern, Programming Principles and Tools Group at Microsoft Research (Cambridge, UK).
