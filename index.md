@@ -16,7 +16,7 @@ I actively sent patches to LLVM
 to (1) make LLVM IR semantics abide by a formal definition, and (2) resolve performance issues of the generated machine code after my patches.
 I also participated in developing [Alive2](https://github.com/AliveToolkit/alive2) ([https://alive2.llvm.org/](https://alive2.llvm.org/)), an automatic optimization validator ([pull requests](https://github.com/AliveToolkit/alive2/pulls?q=is%3Apr+author%3Aaqjune)).
 
-E-mail: aqjune@gmail.com, juneyoung.lee@sf.snu.ac.kr (old)
+E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.ac.kr (old)
 
 **News (2022)**
 - May. 10: I gave a talk "Prototyping a compiler for homomorphic encryption using MLIR" at [LLVM-CGO 2022](https://llvm.org/devmtg/2022-04-03/#prototyping-compiler) and [EuroLLVM 2022](https://llvm.org/devmtg/2022-05/).
