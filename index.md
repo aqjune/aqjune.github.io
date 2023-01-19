@@ -18,11 +18,10 @@ I also participated in developing [Alive2](https://github.com/AliveToolkit/alive
 
 E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.ac.kr (old)
 
-**News (2022)**
-- May. 10: I gave a talk "Prototyping a compiler for homomorphic encryption using MLIR" at [LLVM-CGO 2022](https://llvm.org/devmtg/2022-04-03/#prototyping-compiler) and [EuroLLVM 2022](https://llvm.org/devmtg/2022-05/).
-- Jun. 2: My paper "SMT-based Translation Validation for Machine Learning Compiler" has been accepted at **CAV'22**.
-- Oct. 2: I will serve as a PC for CAV'23.
-- Oct. 24: I joined Automated Reasoning Group at AWS (Austin, TX).
+**News**
+- Jan. 19, 2023: I am giving a talk at KAIST SoC Colloquium (2023 Spring) on May 8th.
+- Oct. 24, 2022: I joined Automated Reasoning Group at AWS (Austin, TX).
+- Oct. 2, 2022: I will serve as a PC for CAV'23.
 
 
 ## Education
