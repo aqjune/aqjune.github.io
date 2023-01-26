@@ -24,15 +24,6 @@ E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.a
 - Oct. 2, 2022: I will serve as a PC for CAV'23.
 
 
-## Education
-
-- Ph.D. in Computer Science and Engineering, [Seoul National University](https://en.snu.ac.kr/) (2016. Mar ~ 2021. Aug)
-  * Advisors: [Chung-Kil Hur](https://sf.snu.ac.kr/gil.hur/), [Nuno. P. Lopes](https://web.ist.utl.pt/nuno.lopes/).
-  * Thesis: [A Validated Semantics for LLVM IR](https://sf.snu.ac.kr/juneyoung.lee/thesis/)
-      - Recipient of Best Thesis Award from College of Engineering, SNU *(one thesis chosen per dept.)*
-
-- B.S. in Computer Science and Engineering, minor in Life Science, [POSTECH](https://www.postech.ac.kr/eng/), magna cum laude (~ 2014. 8)
-
 ## Interests
 
 - Programming languages, compiler verification (esp. _translation validation_)
@@ -47,6 +38,15 @@ E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.a
 ## Publications
 
 - Go to [the publications page](/publications.md) or [Google Scholar](https://scholar.google.com/citations?user=cqNgFT4AAAAJ&hl=en)
+
+## Education
+
+- Ph.D. in Computer Science and Engineering, [Seoul National University](https://en.snu.ac.kr/) (2016. Mar ~ 2021. Aug)
+  * Advisors: [Chung-Kil Hur](https://sf.snu.ac.kr/gil.hur/), [Nuno. P. Lopes](https://web.ist.utl.pt/nuno.lopes/).
+  * Thesis: [A Validated Semantics for LLVM IR](https://sf.snu.ac.kr/juneyoung.lee/thesis/)
+      - Recipient of Best Thesis Award from College of Engineering, SNU *(one thesis chosen per dept.)*
+
+- B.S. in Computer Science and Engineering, minor in Life Science, [POSTECH](https://www.postech.ac.kr/eng/), magna cum laude (~ 2014. 8)
 
 ## Blog Posts
 
