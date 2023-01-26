@@ -1,11 +1,3 @@
-## Awards and Honors
-
-- 2021 College of Engineering, SNU, **Best Thesis Award**
-- 2021 PLDI, **Distinguished Paper Award**
-- 2019 European LLVM developers' meeting, Student Research Competition, Second Prize
-- 2017 Mar – 2021. Aug. Graduate Student Scholarship. Korea Foundation for Advanced Studies.
-- 2012 ACM International Collegiate Programming Contest (ICPC) Regional Contest Daejeon, 5th place (team name DIPLOMATICS, [link](http://icpckorea.org/2012-daejeon/regional))
-
 ## Industrial Experience
 
 - Oct, 2022 ~ now: Applied Scientist, AWS (Austin, TX, USA)
@@ -29,3 +21,12 @@
 - VSTTE 2022: External Reviewer
 - APLAS 2022: External Reviewer
 - CAV 2020: Artifact Evaluation Committee
+
+## Awards and Honors
+
+- 2021 College of Engineering, SNU, **Best Thesis Award**
+- 2021 PLDI, **Distinguished Paper Award**
+- 2019 European LLVM developers' meeting, Student Research Competition, Second Prize
+- 2017 Mar – 2021. Aug. Graduate Student Scholarship. Korea Foundation for Advanced Studies.
+- 2012 ACM International Collegiate Programming Contest (ICPC) Regional Contest Daejeon, 5th place (team name DIPLOMATICS, [link](http://icpckorea.org/2012-daejeon/regional))
+
