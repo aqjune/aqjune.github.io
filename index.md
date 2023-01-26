@@ -1,6 +1,6 @@
 # Juneyoung Lee (이준영), Ph.D.
 
-I am an Applied Scientist at Automated Reasoning Group in AWS (Austin, TX).
+I am an Applied Scientist at Automated Reasoning Group in AWS (Austin, TX). I work on writing provably correct code that is also fast.
 
 Previously, I was a research engineer [CryptoLab](https://www.cryptolab.co.kr/en/home/), a pioneering company for developing homomorphic encryption frameworks.
 I also fulfilled my military service in an alternative form by working for this company.
