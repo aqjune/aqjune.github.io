@@ -1,7 +1,7 @@
 ## Publications
 
 1. _SMT-based Translation Validation for Machine Learning Compiler_.<br/>
-S. Bang, S. Nam, I. Chun, H. Y. Jhoo, <u>J. Lee</u>. CAV 2022. ([link](https://link.springer.com/chapter/10.1007/978-3-031-13188-2_19), [repo](https://github.com/aqjune/mlir-tv))
+S. Bang, S. Nam, I. Chun, H. Y. Jhoo, <u>J. Lee</u>. CAV 2022. ([link](https://link.springer.com/chapter/10.1007/978-3-031-13188-2_19), [repo](https://github.com/aqjune/mlir-tv)) (NOTE: Two authors (S. Bang and I. Chun) were undergraduate students! :)
 
 2. _An SMT Encoding of LLVM's Memory Model for Bounded Translation Validation_.<br/>
 <u>J. Lee</u>, D. Kim, C-K. Hur, N. P. Lopes. CAV 2021. ([link](https://sf.snu.ac.kr/publist/#2021))
