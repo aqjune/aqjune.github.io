@@ -19,6 +19,7 @@ I also participated in developing [Alive2](https://github.com/AliveToolkit/alive
 E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.ac.kr (old)
 
 **News**
+- Feb. 24, 2023: My work at CryptoLab (compiler for homomorphic encryption) has been conditionally accepted to PLDI'23.
 - Jan. 19, 2023: I am giving a talk at KAIST SoC Colloquium (2023 Spring) on May 8th.
 - Oct. 24, 2022: I joined Automated Reasoning Group at AWS (Austin, TX).
 - Oct. 2, 2022: I will serve as a PC for CAV'23.
