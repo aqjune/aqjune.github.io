@@ -19,6 +19,7 @@ I also participated in developing [Alive2](https://github.com/AliveToolkit/alive
 E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.ac.kr (old)
 
 **News**
+- Apr. 6, 2023: My paper 'HEaaN.MLIR: An Optimizing Compiler for Fast Ring-Based Homomorphic Encryption' has been accepted at PLDI'23. I contributed to this research when I was working for CryptoLab in the past.
 - Jan. 19, 2023: I am giving a talk at KAIST SoC Colloquium (2023 Spring) on May 8th.
 - Oct. 24, 2022: I joined Automated Reasoning Group at AWS (Austin, TX).
 - Oct. 2, 2022: I will serve as a PC for CAV'23.
