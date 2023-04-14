@@ -1,7 +1,7 @@
 ## Publications
 
 1. _HEaaN.MLIR: An Optimizing Compiler for Fast Ring-Based Homomorphic Encryption_.<br/>
-S. Park*, W. Song*, S. Nam, H. Kim, J. Shin, **J. Lee**. PLDI 2023.
+S. Park\*, W. Song\*, S. Nam, H. Kim, J. Shin, **J. Lee**. PLDI 2023.
     - The first two authors contributed equally to the paper.
     - Two authors (S. Park, H. Kim) were undergraduate students when the paper was submitted!
 
