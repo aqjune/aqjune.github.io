@@ -1,3 +1,16 @@
+## My Research Experience During Ph.D
+
+I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
+[Seoul National University](https://en.snu.ac.kr/) in August, 2021.
+When I was a graduate student, I worked on clarifying the semantics of the intermediate
+representation of [the LLVM compiler infrastructure](https://llvm.org) and
+implementing compiler optimization validators.
+
+I actively sent patches to LLVM
+([commits](https://github.com/llvm/llvm-project/commits?author=aqjune)/[patches](https://reviews.llvm.org/differential/query/ZDmAEKkUFLzv/#R))
+to (1) make LLVM IR semantics abide by a formal definition, and (2) resolve performance issues of the generated machine code after my patches.
+I also participated in developing [Alive2](https://github.com/AliveToolkit/alive2) ([https://alive2.llvm.org/](https://alive2.llvm.org/)), an automatic optimization validator ([pull requests](https://github.com/AliveToolkit/alive2/pulls?q=is%3Apr+author%3Aaqjune)).
+
 ## Industrial Experience
 
 - Oct, 2022 ~ now: Applied Scientist, AWS (Austin, TX, USA)
