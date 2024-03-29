@@ -11,9 +11,9 @@ I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.ac.kr (old)
 
 **News**
+- Mar. 26, 2023: I will serve as a PC member of VSTTE'24 and AEC member of AVTA'24.
 - Dec. 25, 2023: 'Translation Validation for JIT Compiler in the V8 JavaScript Engine' has been accepted at ICSE'24.
 - Apr. 6, 2023: My paper 'HEaaN.MLIR: An Optimizing Compiler for Fast Ring-Based Homomorphic Encryption' has been accepted at PLDI'23. I contributed to this research when I was working for CryptoLab in the past.
-- Jan. 19, 2023: I am giving a talk at KAIST SoC Colloquium (2023 Spring) on May 8th.
 
 
 ## Interests
