@@ -2,15 +2,13 @@
 
 I am an Applied Scientist at Automated Reasoning Group in AWS (Austin, TX). I work on writing provably correct code that is also fast.
 
-Previously, I was a research engineer [CryptoLab](https://www.cryptolab.co.kr/en/home/), a pioneering company for developing homomorphic encryption frameworks.
-I also fulfilled my military service in an alternative form by working for this company.
-
 I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 [Seoul National University](https://en.snu.ac.kr/) in August, 2021.
 
 E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.ac.kr (old)
 
 **News**
+- Aug. 8, 2024: My work was published as an Amazon Science blog post ([link](https://www.amazon.science/blog/formal-verification-makes-rsa-faster-and-faster-to-deploy)).
 - Mar. 26, 2024: I will serve as a PC member of VSTTE'24 and AEC member of AVTA'24.
 - Dec. 25, 2023: 'Translation Validation for JIT Compiler in the V8 JavaScript Engine' has been accepted at ICSE'24.
 
@@ -41,4 +39,5 @@ E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.a
 
 ## Blog Posts
 
-1. 2021 Oct 4. [The select story](posts/2021-10-4.the-select-story.html)
+- Aug. 8, 2024. [Formal verification makes RSA faster — and faster to deploy](https://www.amazon.science/blog/formal-verification-makes-rsa-faster-and-faster-to-deploy)
+- Oct. 4, 2021. [The select story](posts/2021-10-4.the-select-story.html)
