@@ -8,9 +8,9 @@ I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.ac.kr (old)
 
 **News**
+- Sep. 17, 2024: I will serve as a Review Committee member of OOPSLA'25.
 - Aug. 8, 2024: My work was published as an Amazon Science blog post ([link](https://www.amazon.science/blog/formal-verification-makes-rsa-faster-and-faster-to-deploy)).
 - Mar. 26, 2024: I will serve as a PC member of VSTTE'24 and AEC member of AVTA'24.
-- Dec. 25, 2023: 'Translation Validation for JIT Compiler in the V8 JavaScript Engine' has been accepted at ICSE'24.
 
 
 ## Interests
