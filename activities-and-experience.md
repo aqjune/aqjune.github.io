@@ -30,7 +30,7 @@ I also participated in developing [Alive2](https://github.com/AliveToolkit/alive
 
 ## Professional Activities
 
-- 2024: VSTTE (Program Committee), AVTA (Artifact Evaluation Committee)
+- 2024: OOPSLA (Review Committee), VSTTE (Program Committee), ATVA (Artifact Evaluation Committee)
 - 2023: CAV (Program Committee)
 - 2022: VSTTE (External Reviewer), APLAS (External Reviewer)
 - 2020: CAV (Artifact Evaluation Committee)
