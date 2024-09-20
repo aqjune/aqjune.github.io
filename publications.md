@@ -10,7 +10,7 @@
 <li>
     <strong>HEaaN.MLIR: An Optimizing Compiler for Fast Ring-Based Homomorphic Encryption.</strong><br/>
     Sunjae Park*, Woosung Song*, Seunghyeon Nam, Hyeongyu Kim, Junbum Shin, <b>Juneyoung Lee</b>.<br/>
-    PLDI 2023 (<a href="https://doi.org/10.1145/3591228">doi</a>).<br/>
+    PLDI 2023. (<a href="https://doi.org/10.1145/3591228">doi</a>)<br/>
     - The first two authors contributed equally to the paper.<br/>
     - Two authors (S. Park, H. Kim) were undergraduate students when the paper was submitted!<br/>
 </li>
@@ -31,7 +31,7 @@
 
 <li>
     <strong>Alive2: Bounded Translation Validation for LLVM.</strong><br/>
-    N. P. Lopes, <b>Juneyoung Lee</b>, C-Kil. Hur, Z. Liu, J. Regehr.<br/>
+    N. P. Lopes, <b>Juneyoung Lee</b>, C-K. Hur, Z. Liu, J. Regehr.<br/>
     PLDI 2021. (<a href="https://dl.acm.org/doi/10.1145/3453483.3454030">doi</a>)<br/>
     https://alive2.llvm.org , https://github.com/AliveToolkit/alive2/<br/>
     Recipient of Distinguished Paper Award.<br/>
