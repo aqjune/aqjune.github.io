@@ -4,7 +4,7 @@
 <li>
     <strong>Translation Validation for JIT Compiler in the V8 JavaScript Engine.</strong><br/>
     Seungwan Kwon, Jaeseong Kwon, Wooseok Kang, <b>Juneyoung Lee</b>, Kihong Heo.<br/>
-    ICSE 2024. (to appear)<br/>
+    ICSE 2024. (<a href="https://dl.acm.org/doi/10.1145/3597503.3639189">doi</a>)<br/>
 </li>
 
 <li>
