@@ -18,16 +18,6 @@ I also participated in developing [Alive2](https://github.com/AliveToolkit/alive
 - May ~ Aug, 2019 : Intern, Program Analysis Team at Apple (Cupertino, US).
 - Feb ~ Apr, 2018 : Research intern, Programming Principles and Tools Group at Microsoft Research (Cambridge, UK).
 
-## Talks
-
-* May 2023, "Practical Software Verification and Its Impact: From Compiler to Cryptogtaphy", KAIST
-* May 2022, "Practical Concerns in Verifying LLVM Optimizations and Fixing Bugs in Them", MPI-SWS
-* Apr 2022, "Intermediate Representations of Compilers", KAIST
-* Apr / May 2022, "Prototyping a Compiler for Homomorphic Encryption in MLIR", LLVM-CGO 2022 / EuroLLVM 2022
-* Jan 2022, "A Robust Foundation for the Correctness of LLVM Compiler", KCSE ([link](http://sigsoft.or.kr/KCSE2022/))
-* 2020, "Undef and Poison: Present and Future", The 2020 Virtual LLVM Developers' Meeting, **Keynote Talk**  ([link](https://llvm.org/devmtg/2020-09/schedule/))
-* 2019, "Safely Optimizing Casts between Pointers and Integers": 2019 European LLVM developers' meeting, Student Research Competition, Second Prize
-
 ## Professional Activities
 
 - 2024: OOPSLA (Review Committee), VSTTE (Program Committee), ATVA (Artifact Evaluation Committee)
