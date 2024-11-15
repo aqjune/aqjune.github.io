@@ -26,7 +26,7 @@ E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.a
 
 ## Publications
 
-- Go to [the publications page](/publications.md) or [Google Scholar](https://scholar.google.com/citations?user=cqNgFT4AAAAJ&hl=en)
+- Go to [the publications page](/publications.md) or [Google Scholar](https://scholar.google.com/citations?user=ROTPVwkAAAAJ&hl=en&oi=sra)
 
 ## Education
 
