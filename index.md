@@ -6,6 +6,7 @@ I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 [Seoul National University](https://en.snu.ac.kr/) in August, 2021.
 
 E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.ac.kr (old)
+Google scholar: [link](https://scholar.google.com/citations?user=ROTPVwkAAAAJ&hl=ko)
 
 **News**
 - Sep. 17, 2024: I will serve as a Review Committee member of OOPSLA'25.
