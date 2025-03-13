@@ -1,6 +1,6 @@
 # Juneyoung Lee (이준영, June Lee), Ph.D.
 
-I am an Applied Scientist at Automated Reasoning Group in AWS (Austin, TX). I work on writing provably correct code that is also fast.
+I am a Senior Applied Scientist at Automated Reasoning Group in AWS (Austin, TX). I work on writing a provably correct code that is also fast.
 
 I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 [Seoul National University](https://en.snu.ac.kr/) in August, 2021.
