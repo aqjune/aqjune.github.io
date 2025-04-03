@@ -10,6 +10,7 @@ I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 
 **News**
 - Apr. 2, 2025: A paper "Relational Hoare Logic for Realistically Modelled Machine Code" was accepted to CAV'25!
+- Apr. 2, 2025: A paper "Optimization-Directed Compiler Fuzzing for Continuous  Translation Validation" was accepted to PLDI'25!
 - Sep. 17, 2024: I will serve as a Review Committee member of OOPSLA'25.
 - Aug. 8, 2024: My work was published as an Amazon Science blog post ([link](https://www.amazon.science/blog/formal-verification-makes-rsa-faster-and-faster-to-deploy)).
 
