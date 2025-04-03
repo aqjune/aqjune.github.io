@@ -17,9 +17,8 @@ I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 
 ## Interests
 
-- Programming languages, compiler verification (esp. _translation validation_)
+- Programming languages, compiler verification
 - Theorem proving using SMT solvers and interactive theorem provers
-- Compiler for homomorphic encryption
 - Verification of cryptographic libraries
 
 ## Awards, Activities and Experience
