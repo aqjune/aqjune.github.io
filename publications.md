@@ -1,6 +1,19 @@
 ## Publications
 
 <ol>
+    
+<li>
+    <strong>Relational Hoare Logic for Realistically Modelled Machine Code.</strong><br/>
+    Denis Mazzucato, Abdalrhman Mohamed, <b>Juneyoung Lee</b>†, Clark Barrett, Jim Grundy, John Harrison, Corina Pasareanu.<br/>
+    CAV 2025.
+</li>
+
+<li>
+    <strong>Optimization-Directed Compiler Fuzzing for Continuous Translation Validation.</strong><br/>
+    Jaeseong Kwon, Bongjun Jang, <b>Juneyoung Lee</b>, and Kihong Heo.<br/>
+    PLDI 2025.
+</li>
+
 <li>
     <strong>Translation Validation for JIT Compiler in the V8 JavaScript Engine.</strong><br/>
     Seungwan Kwon, Jaeseong Kwon, Wooseok Kang, <b>Juneyoung Lee</b>, Kihong Heo.<br/>
@@ -9,7 +22,7 @@
 
 <li>
     <strong>HEaaN.MLIR: An Optimizing Compiler for Fast Ring-Based Homomorphic Encryption.</strong><br/>
-    Sunjae Park*, Woosung Song*, Seunghyeon Nam, Hyeongyu Kim, Junbum Shin, <b>Juneyoung Lee</b>.<br/>
+    Sunjae Park*, Woosung Song*, Seunghyeon Nam, Hyeongyu Kim, Junbum Shin, <b>Juneyoung Lee</b>†.<br/>
     PLDI 2023. (<a href="https://doi.org/10.1145/3591228">doi</a>)<br/>
     - The first two authors contributed equally to the paper.<br/>
     - Two authors (S. Park, H. Kim) were undergraduate students when the paper was submitted!<br/>
@@ -17,7 +30,7 @@
 
 <li>
     <strong>SMT-based Translation Validation for Machine Learning Compiler.</strong><br/>
-    Seongwon Bang, Seunghyeon Nam, Inwhan Chun, Ho Young Jhoo, <b>Juneyoung Lee</b>.<br/>
+    Seongwon Bang, Seunghyeon Nam, Inwhan Chun, Ho Young Jhoo, <b>Juneyoung Lee</b>†.<br/>
     CAV 2022. (<a href="https://link.springer.com/chapter/10.1007/978-3-031-13188-2_19">doi</a>)<br/>
     https://github.com/aqjune/mlir-tv <br/>
     - Two authors (S. Bang and I. Chun) were undergraduate students when the paper was submitted!<br/>
