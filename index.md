@@ -6,7 +6,8 @@ I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 [Seoul National University](https://en.snu.ac.kr/) in August, 2021.
 
 - E-mail: lebjuney@amazon.com, aqjune@gmail.com (personal), juneyoung.lee@sf.snu.ac.kr (old)
-- Google scholar: https://scholar.google.com/citations?user=ROTPVwkAAAAJ&hl=ko , ORCID: https://orcid.org/0000-0002-8152-9330
+- Google scholar: [scholar.google.com/citations?user=ROTPVwkAAAAJ&hl=ko](https://scholar.google.com/citations?user=ROTPVwkAAAAJ&hl=ko)
+- ORCID: [0000-0002-8152-9330](https://orcid.org/0000-0002-8152-9330)
 
 **News**
 - Apr. 2, 2025: A paper "Relational Hoare Logic for Realistically Modelled Machine Code" was accepted to CAV'25!
