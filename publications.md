@@ -11,7 +11,7 @@
 <li>
     <strong>Optimization-Directed Compiler Fuzzing for Continuous Translation Validation.</strong><br/>
     Jaeseong Kwon, Bongjun Jang, <b>Juneyoung Lee</b>, and Kihong Heo.<br/>
-    PLDI 2025.
+    PLDI 2025. (<a href="https://dl.acm.org/doi/10.1145/3729275">doi</a>)<br/>
 </li>
 
 <li>
