@@ -10,6 +10,7 @@ I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 - ORCID: [0000-0002-8152-9330](https://orcid.org/0000-0002-8152-9330)
 
 **News**
+- Nov, 2025: I will serve as a Program Committee of CAV'26 ([link](https://conferences.i-cav.org/2026/organization/)).
 - Apr. 2, 2025: A paper "Relational Hoare Logic for Realistically Modelled Machine Code" was accepted to CAV'25!
 - Apr. 2, 2025: A paper "Optimization-Directed Compiler Fuzzing for Continuous  Translation Validation" was accepted to PLDI'25!
 
