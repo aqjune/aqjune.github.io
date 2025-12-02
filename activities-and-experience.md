@@ -20,7 +20,7 @@ I also participated in developing [Alive2](https://github.com/AliveToolkit/alive
 
 ## Professional Activities
 
-- 2026: CAV (Program Committee)
+- 2026: CAV (Program Committee), FM (Program Committee)
 - 2024-2025: OOPSLA (Review Committee)
 - 2024: VSTTE (Program Committee), ATVA (Artifact Evaluation Committee)
 - 2023: CAV (Program Committee)
