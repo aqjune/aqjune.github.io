@@ -4,8 +4,9 @@
     
 <li>
     <strong>Relational Hoare Logic for Realistically Modelled Machine Code.</strong><br/>
-    Denis Mazzucato, Abdalrhman Mohamed, <b>Juneyoung Lee</b>†, Clark Barrett, Jim Grundy, John Harrison, Corina Pasareanu.<br/>
+    Denis Mazzucato*, Abdalrhman Mohamed*, <b>Juneyoung Lee</b>†, Clark Barrett, Jim Grundy, John Harrison, Corina Pasareanu.<br/>
     CAV 2025. (<a href="https://link.springer.com/chapter/10.1007/978-3-031-98668-0_19">doi</a>)<br/>
+    - The first two authors contributed equally to the paper.<br/>
 </li>
 
 <li>
