@@ -1,7 +1,13 @@
 ## Publications
 
 <ol>
-    
+
+<li>
+    <strong>Towards Removing Undef Values From LLVM IR.</strong><br/>
+    Pedro Lobo, John McIver, George Mitenkov, <b>Juneyoung Lee</b>, Kirshanthan Sundararajah, Nuno P. Lopes.<br/>
+    PLDI 2026.<br/>
+</li>
+
 <li>
     <strong>Relational Hoare Logic for Realistically Modelled Machine Code.</strong><br/>
     Denis Mazzucato*, Abdalrhman Mohamed*, <b>Juneyoung Lee</b>†, Clark Barrett, Jim Grundy, John Harrison, Corina Pasareanu.<br/>
