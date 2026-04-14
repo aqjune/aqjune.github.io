@@ -11,6 +11,7 @@ I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 
 **News**
 - Apr. 13, 2026: A paper "Towards Removing Undef Values From LLVM IR" was accepted to PLDI'26!
+- Apr. 9, 2026: A workshop talk "s2n-bignum-bench: A practical benchmark for evaluating low-level code reasoning of LLMs" was accepted to AIPV'26!
 
 ## Interests
 
@@ -37,5 +38,7 @@ I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 
 ## Blog Posts
 
+- Mar. 20, 2026. [Formally verified AES-XTS: The first AES algorithm to join s2n-bignum
+](https://www.amazon.science/blog/formally-verified-aes-xts-the-first-aes-algorithm-to-join-s2n-bignum)
 - Aug. 8, 2024. [Formal verification makes RSA faster — and faster to deploy](https://www.amazon.science/blog/formal-verification-makes-rsa-faster-and-faster-to-deploy)
 - Oct. 4, 2021. [The select story](posts/2021-10-4.the-select-story.html)
