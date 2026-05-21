@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HOL Light in the browser</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    background: #1e1e1e;
+    color: #ddd;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+  }
+  /* Stack the two main panes (#wrapper) above the status bar so the bar
+     never floats over the terminal's last line. */
+  body { display: flex; flex-direction: column; }
+  code, kbd, pre, samp, textarea {
+    font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  }
+
+  /* Two-pane layout, modelled on jsoo's lwt_toplevel demo.  flex:1 inside
+     the body's column flexbox makes the wrapper consume all space above
+     the status bar (which is the body's other child). */
+  #wrapper { display: flex; flex: 1 1 auto; min-height: 0; }
+
+  #term {
+    flex: 1 1 70%;
+    min-width: 0;
+    background: #161618;
+    color: #ccc;
+    overflow: auto;
+    padding: 18px 20px;
+    position: relative;
+  }
+  #watermark {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4em; font-weight: 700; letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none; user-select: none;
+  }
+  #output {
+    margin: 0; padding: 0;
+    background: transparent; color: #ccc;
+    font-size: 13px; line-height: 1.25;
+    white-space: pre-wrap; word-break: break-word;
+  }
+  #output .sharp  { color: #fff; font-weight: bold; }
+  #output .sharp::before { content: "# "; color: #888; }
+  #output .caml   { color: rgb(110, 130, 220); }
+  #output .stdout { color: #c4c4c4; }
+  #output .stderr { color: #e06060; }
+  #output .meta   { color: #888; font-style: italic; }
+
+  /* Input row: the "# " prompt and the textarea side by side. */
+  #prompt-row { display: flex; align-items: flex-start; margin-top: 4px; }
+  #prompt { color: #888; padding-right: 4px; line-height: 20px; font-size: 13px; }
+  #userinput {
+    flex: 1; min-width: 0;
+    background: transparent; color: #fff; font-weight: bold;
+    border: 0; resize: none; outline: none;
+    line-height: 20px; font-size: 13px; padding: 0;
+  }
+  #userinput.disabled { color: #666; font-weight: normal; }
+
+  #side {
+    flex: 1 1 30%;
+    min-width: 0;
+    overflow: auto;
+    padding: 24px 28px;
+    background: #1e1e1e;
+  }
+  #side h3 { margin: 0 0 4px; font-weight: 600; color: #eee; font-size: 1.4em; }
+  #side .subtitle { margin: 0; color: #888; font-size: 0.95em; }
+  #side .subtitle a { color: #61afef; text-decoration: none; }
+  #side .subtitle a:hover { text-decoration: underline; }
+  #side h4 { color: #aaa; font-weight: 500; font-size: 1em; margin: 1.4em 0 0.5em; }
+  #side p { color: #999; line-height: 1.55; margin: 0.5em 0; }
+  #side ul { padding-left: 1.2em; }
+  #side li { color: #aab; margin: 0.2em 0; cursor: pointer; }
+  #side li:hover { color: #eee; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.08); color: #bbb; font-size: 13px; }
+  td:first-child { color: #ddd; font-family: "SF Mono", Consolas, monospace; font-size: 12px; white-space: nowrap; }
+  .sidebar-header { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 14px; margin-bottom: 12px; }
+
+  #handle {
+    width: 5px; cursor: col-resize; background: transparent;
+    flex: 0 0 5px; transition: background 0.15s;
+  }
+  #handle:hover, #handle.dragging { background: rgba(255,255,255,0.12); }
+
+  #status-bar {
+    flex: 0 0 auto;
+    padding: 4px 10px; font-size: 12px;
+    background: #2a2a2a; color: #aaa;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-family: "SF Mono", Consolas, monospace;
+  }
+  #status-bar.busy { background: #4a3a1a; color: #ffcb6b; }
+  #status-bar.ready { background: #1a3a1a; color: #98c379; }
+
+
+  /* ANSI 4-bit foregrounds emitted by HOL Light's pp_print_colored_*. */
+  .ansi-30 { color: #5c6370; } .ansi-31 { color: #e06c75; }
+  .ansi-32 { color: #98c379; } .ansi-33 { color: #e5c07b; }
+  .ansi-34 { color: #61afef; } .ansi-35 { color: #c678dd; }
+  .ansi-36 { color: #56b6c2; } .ansi-37 { color: #abb2bf; }
+  .ansi-1  { font-weight: bold; }
+
+  @media (max-width: 760px) {
+    #wrapper { flex-direction: column; }
+    #handle  { display: none; }
+    #term, #side { flex: 1 1 50%; }
+  }
+</style>
+</head>
+<body>
+<div id="wrapper">
+  <div id="term">
+    <div id="watermark">HOL&nbsp;Light</div>
+    <pre id="output"></pre>
+    <div id="prompt-row">
+      <span id="prompt">#</span>
+      <textarea id="userinput" class="disabled" rows="1">Booting kernel…</textarea>
+    </div>
+  </div>
+  <div id="handle"></div>
+  <div id="side">
+    <div class="sidebar-header">
+      <h3>HOL Light</h3>
+      <p class="subtitle">
+        Built from
+        <a href="https://github.com/jrh13/hol-light/commit/9b510bc76da4cecf6e509be44d327c9236ec273f"
+           target="_blank" rel="noopener">jrh13/hol-light @ 9b510bc</a>.
+      </p>
+    </div>
+    <h4>Keyboard shortcuts</h4>
+    <table>
+      <tbody>
+        <tr><td>Enter</td><td>Submit code</td></tr>
+        <tr><td>Shift+Enter</td><td>Newline</td></tr>
+        <tr><td>↑ / ↓</td><td>Browse history</td></tr>
+        <tr><td>Ctrl+L</td><td>Clear output</td></tr>
+        <tr><td>Ctrl+K</td><td>Reset toplevel</td></tr>
+      </tbody>
+    </table>
+    <h4>Examples</h4>
+    <ul id="examples">
+      <li data-code="let tm = `x + 1 = 1 + x`;;">A simple term</li>
+      <li data-code="let th = prove (`(x + 2) * y = x * y + 2 * y`, ARITH_TAC);;">Prove with ARITH_TAC</li>
+      <li data-code="g `exists x. x + 2 = 5`;;
+e (EXISTS_TAC `3`);;
+e ARITH_TAC;;
+let mythm = top_thm();;">Goal stack: existential</li>
+      <li data-code="TAUT `(p ==> q) /\ (q ==> r) ==> (p ==> r)`;;">Propositional tautology</li>
+      <li data-code="ARITH_RULE
+ `(a * x + b * y + a * y) EXP 3 + (b * x) EXP 3 +
+  (a * x + b * y + b * x) EXP 3 + (a * y) EXP 3 =
+  (a * x + a * y + b * x) EXP 3 + (b * y) EXP 3 +
+  (a * y + b * y + b * x) EXP 3 + (a * x) EXP 3`;;">A nonlinear arithmetic identity</li>
+      <li data-code="prove
+ (`forall n. nsum(1..n) (\i. i) = (n * (n + 1)) DIV 2`,
+  INDUCT_TAC THEN ASM_REWRITE_TAC[NSUM_CLAUSES_NUMSEG] THEN ARITH_TAC);;">Sum 1..n by induction</li>
+      <li data-code="needs &quot;Library/prime.ml&quot;;;
+prove (`coprime(15,28)`, CONV_TAC COPRIME_CONV);;">loadt + coprime test</li>
+      <li data-code="let golden = new_definition
+  `golden = (&1 + sqrt(&5)) / &2`;;">Define a constant</li>
+      <li data-code="let fib = define
+  `fib n = if n = 0 \/ n = 1 then 1
+           else fib(n - 1) + fib(n - 2)`;;">Recursive function: Fibonacci</li>
+      <li data-code="let tree_INDUCT,tree_RECURSION = define_type
+  &quot;tree = Leaf num | Node tree tree&quot;;;
+let size = define
+  `(size (Leaf n) = 1) /\
+   (size (Node l r) = 1 + size l + size r)`;;
+REWRITE_CONV[size; ARITH]
+  `size (Node (Leaf 1) (Node (Leaf 2) (Leaf 3)))`;;">Define a new type: binary tree</li>
+      <li data-code="help &quot;ARITH_TAC&quot;;;">help</li>
+    </ul>
+    <h4>Heads up</h4>
+    <p>There is no interrupt in this interface — a runaway proof
+    (e.g. a non-terminating <code>REWRITE_CONV</code>) cannot be
+    cancelled.  <kbd>Ctrl+K</kbd> wipes the toplevel and re-boots
+    the kernel from scratch (~1–2 min), so use it only as a last
+    resort.</p>
+    <p>The <code>search</code> command is not available here:
+    <code>update_database.ml</code> is intentionally not shipped
+    with this build (so <code>loadt&nbsp;"update_database.ml";;</code>
+    will fail with a file-not-found).</p>
+  </div>
+</div>
+<div id="status-bar">Spawning Web Worker…</div>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const term      = $('term');
+  const output    = $('output');
+  const userinput = $('userinput');
+  const prompt    = $('prompt');
+  const status    = $('status-bar');
+
+  // -------- ANSI → HTML translator --------
+  // HOL Light's colored printers emit only `\e[N m` and `\e[0m`; nothing
+  // exotic, so a small regex-based translator is enough.
+  const ansiRe = /\x1b\[([0-9;]*)m/g;
+  function escapeHtml(s) {
+    return s.replace(/[&<>]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  }
+  function ansiToHtml(text) {
+    let html = '', cursor = 0, depth = 0;
+    for (const m of text.matchAll(ansiRe)) {
+      html += escapeHtml(text.slice(cursor, m.index));
+      cursor = m.index + m[0].length;
+      const codes = m[1].split(';').filter((c) => c.length);
+      if (codes.length === 0 || codes.includes('0')) {
+        while (depth-- > 0) html += '</span>';
+        depth = 0;
+      } else {
+        for (const c of codes) {
+          html += '<span class="ansi-' + escapeHtml(c) + '">';
+          depth++;
+        }
+      }
+    }
+    html += escapeHtml(text.slice(cursor));
+    while (depth-- > 0) html += '</span>';
+    return html;
+  }
+
+  // -------- Output sink --------
+  // Each chunk arrives with a stream tag.  We merge consecutive chunks of
+  // the same stream into one <span> so DOM growth is bounded.
+  let lastSpan = null, lastStream = null;
+  function append(stream, text) {
+    const wasNearBottom =
+      term.scrollHeight - term.scrollTop - term.clientHeight < 80;
+    if (stream !== lastStream) {
+      lastSpan = document.createElement('span');
+      lastSpan.className = stream;
+      output.appendChild(lastSpan);
+      lastStream = stream;
+    }
+    if (stream === 'caml' || stream === 'stdout' || stream === 'stderr') {
+      lastSpan.insertAdjacentHTML('beforeend', ansiToHtml(text));
+    } else {
+      lastSpan.appendChild(document.createTextNode(text));
+    }
+    if (wasNearBottom) term.scrollTop = term.scrollHeight;
+  }
+  function appendMeta(text) {
+    lastStream = null;
+    const span = document.createElement('span');
+    span.className = 'meta';
+    span.textContent = text;
+    output.appendChild(span);
+    term.scrollTop = term.scrollHeight;
+  }
+  function clearOutput() { output.textContent = ''; lastSpan = null; lastStream = null; }
+
+  // -------- Worker plumbing --------
+  let worker = null;
+  let ready = false;
+  let busy  = false;
+
+  function setStatus(text, cls) {
+    status.textContent = text;
+    status.className = cls || '';
+  }
+
+  function spawnWorker() {
+    if (worker) worker.terminate();
+    worker = new Worker('hol_top_worker.js');
+    ready = false; busy = false;
+    setStatus('Booting HOL Light kernel… (~1–2 min on first load)', 'busy');
+    userinput.classList.add('disabled');
+    userinput.value = 'Booting kernel…';
+
+    worker.onmessage = (ev) => {
+      const m = ev.data; if (!m || !m.kind) return;
+      switch (m.kind) {
+        case 'out':   append(m.stream, m.text); break;
+        case 'ready':
+          ready = true; busy = false;
+          setStatus('Ready.  Press Enter to submit.', 'ready');
+          userinput.classList.remove('disabled');
+          userinput.value = '';
+          autoresize();
+          userinput.focus();
+          break;
+        case 'done':
+          busy = false;
+          setStatus('Ready.', 'ready');
+          userinput.classList.remove('disabled');
+          userinput.focus();
+          break;
+      }
+    };
+    worker.onerror = (e) => {
+      setStatus('Worker error: ' + e.message);
+      appendMeta('\n[worker error: ' + e.message + ']\n');
+    };
+  }
+
+  // -------- Input handling --------
+  function autoresize() {
+    userinput.style.height = 'auto';
+    userinput.style.height = Math.max(20, userinput.scrollHeight) + 'px';
+    term.scrollTop = term.scrollHeight;
+  }
+
+  function execute() {
+    if (!ready || busy) return;
+    let code = userinput.value;
+    if (!code.trim()) return;
+    // Auto-append `;;` if the user forgot.
+    const trimmed = code.trimEnd();
+    if (!trimmed.endsWith(';;')) code = trimmed + ';;';
+    History.push(userinput.value);
+    // Echo input as a "sharp" line so the look matches the OCaml toplevel.
+    append('sharp', userinput.value + '\n');
+    userinput.value = '';
+    autoresize();
+    busy = true;
+    setStatus('Running…', 'busy');
+    worker.postMessage({ kind: 'eval', src: code });
+  }
+
+  // -------- History (localStorage-backed, like lwt_toplevel) --------
+  const History = (() => {
+    let data = [''], idx = 0;
+    function load() {
+      try {
+        const raw = localStorage.getItem('hol-history');
+        if (raw) {
+          const arr = JSON.parse(raw);
+          if (Array.isArray(arr) && arr.length) { data = arr.concat(['']); idx = data.length - 1; }
+        }
+      } catch (_) {}
+    }
+    function save() {
+      try { localStorage.setItem('hol-history', JSON.stringify(data.slice(0, -1))); } catch (_) {}
+    }
+    return {
+      load,
+      push(text) {
+        if (!text.trim()) return;
+        data.splice(data.length - 1, 0, text);
+        idx = data.length - 1;
+        save();
+      },
+      current(text) { data[idx] = text; },
+      previous() { if (idx > 0) { idx--; userinput.value = data[idx]; autoresize(); } },
+      next() { if (idx < data.length - 1) { idx++; userinput.value = data[idx]; autoresize(); } },
+    };
+  })();
+  History.load();
+
+  // -------- Examples --------
+  document.getElementById('examples').addEventListener('click', (ev) => {
+    const li = ev.target.closest('li[data-code]');
+    if (!li || !ready) return;
+    userinput.value = li.dataset.code;
+    autoresize();
+    userinput.focus();
+  });
+
+  // -------- Keymap (mirrors lwt_toplevel) --------
+  userinput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey && !e.ctrlKey && !e.metaKey) {
+      e.preventDefault(); execute(); return;
+    }
+    if (e.key === 'l' && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault(); clearOutput(); return;
+    }
+    if (e.key === 'k' && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      clearOutput(); appendMeta('--- toplevel reset ---\n');
+      spawnWorker(); return;
+    }
+    if (e.key === 'ArrowUp') {
+      const txt = userinput.value;
+      if (txt.indexOf('\n', userinput.selectionStart) === -1 || txt === '') {
+        // already on first line: navigate history
+        e.preventDefault(); History.current(txt); History.previous();
+      }
+      return;
+    }
+    if (e.key === 'ArrowDown') {
+      const txt = userinput.value;
+      const pos = userinput.selectionStart;
+      if (txt.indexOf('\n', pos) === -1 || txt === '') {
+        e.preventDefault(); History.current(txt); History.next();
+      }
+      return;
+    }
+  });
+  userinput.addEventListener('input', autoresize);
+  // Click anywhere in the terminal area to focus the textarea.
+  term.addEventListener('click', (e) => {
+    if (window.getSelection().toString()) return;  // don't steal during select
+    if (!ready) return;
+    userinput.focus();
+  });
+
+  // -------- Resize handle --------
+  (() => {
+    const handle = document.getElementById('handle');
+    const left = $('term'), right = $('side'), wrap = $('wrapper');
+    let dragging = false;
+    handle.addEventListener('mousedown', (e) => {
+      e.preventDefault(); dragging = true;
+      handle.classList.add('dragging');
+      document.body.style.cursor = 'col-resize';
+      document.body.style.userSelect = 'none';
+    });
+    document.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      const rect = wrap.getBoundingClientRect();
+      const pct = Math.max(20, Math.min(80, (e.clientX - rect.left) / rect.width * 100));
+      left.style.flex = '0 0 ' + pct + '%';
+      right.style.flex = '1 1 0%';
+    });
+    document.addEventListener('mouseup', () => {
+      if (!dragging) return; dragging = false;
+      handle.classList.remove('dragging');
+      document.body.style.cursor = ''; document.body.style.userSelect = '';
+    });
+  })();
+
+  // -------- Boot --------
+  spawnWorker();
+})();
+</script>
+</body>
+</html>

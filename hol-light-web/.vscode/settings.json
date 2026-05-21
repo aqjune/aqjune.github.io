@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.ml": "hol-light-ocaml"
+  },
+  "hol-light.path": "/mnt/disk/hol-light"
+}
