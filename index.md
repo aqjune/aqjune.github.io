@@ -42,3 +42,7 @@ I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 ](https://www.amazon.science/blog/formally-verified-aes-xts-the-first-aes-algorithm-to-join-s2n-bignum)
 - Aug. 8, 2024. [Formal verification makes RSA faster — and faster to deploy](https://www.amazon.science/blog/formal-verification-makes-rsa-faster-and-faster-to-deploy)
 - Oct. 4, 2021. [The select story](posts/2021-10-4.the-select-story.html)
+
+## Others
+
+- [hol-light-web](https://aqjune.github.io/hol-light-web/): HOL Light in a web browser :)

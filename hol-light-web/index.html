@@ -7,11 +7,73 @@
 <style>
   * { box-sizing: border-box; }
 
+  /* Theming.  Two palettes; switched by [data-theme] on <html>.  Only the
+     page chrome is themed — ANSI colors stay fixed because HOL Light's
+     printers emit them as raw RGB and they're tuned for dark backgrounds. */
+  :root, [data-theme="dark"] {
+    --bg-app: #1e1e1e;
+    --bg-term: #161618;
+    --bg-status: #2a2a2a;
+    --bg-status-busy: #4a3a1a;
+    --bg-status-busy-fg: #ffcb6b;
+    --bg-status-ready: #1a3a1a;
+    --bg-status-ready-fg: #98c379;
+    --fg-main: #ddd;
+    --fg-output: #ccc;
+    --fg-headings: #eee;
+    --fg-muted-1: #aaa;
+    --fg-muted-2: #999;
+    --fg-muted-3: #aab;
+    --fg-cell: #bbb;
+    --fg-dim: #888;
+    --fg-disabled: #666;
+    --fg-input: #fff;
+    --link: #61afef;
+    --border: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.12);
+    --border-hover: rgba(255,255,255,0.18);
+    --watermark: rgba(255,255,255,0.04);
+    --caml: rgb(110, 130, 220);
+    --stderr: #e06060;
+    --btn-bg: rgba(255,255,255,0.06);
+    --btn-bg-hover: rgba(255,255,255,0.14);
+    --backdrop: rgba(0,0,0,0.55);
+  }
+  [data-theme="light"] {
+    --bg-app: #f6f6f7;
+    --bg-term: #ffffff;
+    --bg-status: #e7e7ea;
+    --bg-status-busy: #fff4d4;
+    --bg-status-busy-fg: #8a6d1f;
+    --bg-status-ready: #dcecdc;
+    --bg-status-ready-fg: #2e6b2e;
+    --fg-main: #222;
+    --fg-output: #222;
+    --fg-headings: #111;
+    --fg-muted-1: #555;
+    --fg-muted-2: #555;
+    --fg-muted-3: #555;
+    --fg-cell: #333;
+    --fg-dim: #777;
+    --fg-disabled: #aaa;
+    --fg-input: #111;
+    --link: #1a6dba;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.15);
+    --border-hover: rgba(0,0,0,0.25);
+    --watermark: rgba(0,0,0,0.05);
+    --caml: rgb(50, 70, 180);
+    --stderr: #c0392b;
+    --btn-bg: rgba(0,0,0,0.05);
+    --btn-bg-hover: rgba(0,0,0,0.1);
+    --backdrop: rgba(0,0,0,0.4);
+  }
+
   html, body {
     height: 100%;
     margin: 0;
-    background: #1e1e1e;
-    color: #ddd;
+    background: var(--bg-app);
+    color: var(--fg-main);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 14px;
     overflow: hidden;
@@ -28,11 +90,20 @@
      the status bar (which is the body's other child). */
   #wrapper { display: flex; flex: 1 1 auto; min-height: 0; }
 
-  #term {
+  /* #term-pane wraps the scrollable terminal so we can absolute-position
+     the floating action buttons relative to its visible viewport (rather
+     than have them scroll along with output). */
+  #term-pane {
     flex: 1 1 70%;
     min-width: 0;
-    background: #161618;
-    color: #ccc;
+    position: relative;
+    display: flex;
+  }
+  #term {
+    flex: 1 1 auto;
+    min-width: 0;
+    background: var(--bg-term);
+    color: var(--fg-output);
     overflow: auto;
     padding: 18px 20px;
     position: relative;
@@ -41,72 +112,148 @@
     position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     font-size: 4em; font-weight: 700; letter-spacing: 0.05em;
-    color: rgba(255,255,255,0.04);
+    color: var(--watermark);
     pointer-events: none; user-select: none;
   }
   #output {
     margin: 0; padding: 0;
-    background: transparent; color: #ccc;
+    background: transparent; color: var(--fg-output);
     font-size: 13px; line-height: 1.25;
     white-space: pre-wrap; word-break: break-word;
   }
-  #output .sharp  { color: #fff; font-weight: bold; }
-  #output .sharp::before { content: "# "; color: #888; }
-  #output .caml   { color: rgb(110, 130, 220); }
-  #output .stdout { color: #c4c4c4; }
-  #output .stderr { color: #e06060; }
-  #output .meta   { color: #888; font-style: italic; }
+  #output .sharp  { color: var(--fg-input); font-weight: bold; }
+  #output .sharp::before { content: "# "; color: var(--fg-dim); }
+  #output .caml   { color: var(--caml); }
+  #output .stdout { color: var(--fg-output); }
+  #output .stderr { color: var(--stderr); }
+  #output .meta   { color: var(--fg-dim); font-style: italic; }
 
   /* Input row: the "# " prompt and the textarea side by side. */
   #prompt-row { display: flex; align-items: flex-start; margin-top: 4px; }
-  #prompt { color: #888; padding-right: 4px; line-height: 20px; font-size: 13px; }
+  #prompt { color: var(--fg-dim); padding-right: 4px; line-height: 20px; font-size: 13px; }
   #userinput {
     flex: 1; min-width: 0;
-    background: transparent; color: #fff; font-weight: bold;
+    background: transparent; color: var(--fg-input); font-weight: bold;
     border: 0; resize: none; outline: none;
     line-height: 20px; font-size: 13px; padding: 0;
   }
-  #userinput.disabled { color: #666; font-weight: normal; }
+  #userinput.disabled { color: var(--fg-disabled); font-weight: normal; }
+
+  /* Floating action buttons pinned to the bottom-right of #term-pane.
+     They sit above the scrollable #term so they don't move with output. */
+  #term-controls {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    gap: 6px;
+    z-index: 5;
+  }
+  #term-controls button {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    background: var(--btn-bg);
+    color: var(--fg-main);
+    font-size: 14px; line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+  }
+  #term-controls button:hover { background: var(--btn-bg-hover); }
+
+  /* Modal dialogs for settings / help. */
+  .app-dialog {
+    background: var(--bg-app);
+    color: var(--fg-main);
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    padding: 0;
+    max-width: 540px;
+    width: calc(100% - 32px);
+  }
+  .app-dialog::backdrop { background: var(--backdrop); }
+  .app-dialog form { padding: 20px 22px; margin: 0; }
+  .app-dialog h3 { margin: 0 0 12px; color: var(--fg-headings); font-size: 1.15em; }
+  .app-dialog p { color: var(--fg-muted-2); line-height: 1.55; margin: 0.6em 0; }
+  .app-dialog .hint { color: var(--fg-dim); font-size: 0.9em; }
+  .app-dialog label { display: block; margin: 8px 0; color: var(--fg-main); }
+  .app-dialog fieldset {
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    padding: 6px 12px 10px;
+    margin: 14px 0 8px;
+  }
+  .app-dialog legend { padding: 0 4px; color: var(--fg-muted-1); font-size: 0.95em; }
+  .app-dialog input[type="number"] {
+    background: var(--bg-term); color: var(--fg-main);
+    border: 1px solid var(--border-strong);
+    border-radius: 3px; padding: 4px 6px;
+    margin-left: 8px; width: 110px;
+    font: inherit;
+  }
+  .app-dialog input[type="radio"] { margin-right: 6px; }
+  .app-dialog menu {
+    display: flex; gap: 8px; justify-content: flex-end;
+    padding: 0; margin: 18px 0 0; list-style: none;
+  }
+  .app-dialog button {
+    background: var(--btn-bg); color: var(--fg-main);
+    border: 1px solid var(--border-strong);
+    border-radius: 3px;
+    padding: 6px 14px; font: inherit;
+    cursor: pointer;
+  }
+  .app-dialog button:hover { background: var(--btn-bg-hover); }
+  .app-dialog code {
+    background: var(--btn-bg);
+    padding: 1px 5px; border-radius: 2px;
+    font-size: 0.95em;
+  }
+  .app-dialog a { color: var(--link); }
 
   #side {
     flex: 1 1 30%;
     min-width: 0;
     overflow: auto;
     padding: 24px 28px;
-    background: #1e1e1e;
+    background: var(--bg-app);
   }
-  #side h3 { margin: 0 0 4px; font-weight: 600; color: #eee; font-size: 1.4em; }
-  #side .subtitle { margin: 0; color: #888; font-size: 0.95em; }
-  #side .subtitle a { color: #61afef; text-decoration: none; }
-  #side .subtitle a:hover { text-decoration: underline; }
-  #side h4 { color: #aaa; font-weight: 500; font-size: 1em; margin: 1.4em 0 0.5em; }
-  #side p { color: #999; line-height: 1.55; margin: 0.5em 0; }
+  #side h3 { margin: 0 0 4px; font-weight: 600; color: var(--fg-headings); font-size: 1.4em; }
+  #side .subtitle { margin: 0; color: var(--fg-dim); font-size: 0.95em; }
+  #side a { color: var(--link); text-decoration: none; }
+  #side a:hover { text-decoration: underline; }
+  #side ul.refs li { cursor: default; }
+  #side ul.refs li:hover { color: var(--fg-muted-3); }
+  #side h4 { color: var(--fg-muted-1); font-weight: 500; font-size: 1em; margin: 1.4em 0 0.5em; }
+  #side p { color: var(--fg-muted-2); line-height: 1.55; margin: 0.5em 0; }
   #side ul { padding-left: 1.2em; }
-  #side li { color: #aab; margin: 0.2em 0; cursor: pointer; }
-  #side li:hover { color: #eee; }
+  #side li { color: var(--fg-muted-3); margin: 0.2em 0; cursor: pointer; }
+  #side li:hover { color: var(--fg-headings); }
   table { width: 100%; border-collapse: collapse; }
-  td { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.08); color: #bbb; font-size: 13px; }
-  td:first-child { color: #ddd; font-family: "SF Mono", Consolas, monospace; font-size: 12px; white-space: nowrap; }
-  .sidebar-header { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 14px; margin-bottom: 12px; }
+  td { padding: 6px 8px; border-bottom: 1px solid var(--border); color: var(--fg-cell); font-size: 13px; }
+  td:first-child { color: var(--fg-main); font-family: "SF Mono", Consolas, monospace; font-size: 12px; white-space: nowrap; }
+  .sidebar-header { border-bottom: 1px solid var(--border-strong); padding-bottom: 14px; margin-bottom: 12px; }
 
   #handle {
     width: 5px; cursor: col-resize; background: transparent;
     flex: 0 0 5px; transition: background 0.15s;
   }
-  #handle:hover, #handle.dragging { background: rgba(255,255,255,0.12); }
+  #handle:hover, #handle.dragging { background: var(--border-hover); }
 
   #status-bar {
     flex: 0 0 auto;
     padding: 4px 10px; font-size: 12px;
-    background: #2a2a2a; color: #aaa;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    background: var(--bg-status); color: var(--fg-muted-1);
+    border-top: 1px solid var(--border);
     font-family: "SF Mono", Consolas, monospace;
   }
-  #status-bar.busy { background: #4a3a1a; color: #ffcb6b; }
-  #status-bar.ready { background: #1a3a1a; color: #98c379; }
+  #status-bar.busy { background: var(--bg-status-busy); color: var(--bg-status-busy-fg); }
+  #status-bar.ready { background: var(--bg-status-ready); color: var(--bg-status-ready-fg); }
 
 
-  /* ANSI 4-bit foregrounds emitted by HOL Light's pp_print_colored_*. */
+  /* ANSI 4-bit foregrounds emitted by HOL Light's pp_print_colored_*.
+     Fixed RGB — the kernel emits raw color codes; the page just renders them. */
   .ansi-30 { color: #5c6370; } .ansi-31 { color: #e06c75; }
   .ansi-32 { color: #98c379; } .ansi-33 { color: #e5c07b; }
   .ansi-34 { color: #61afef; } .ansi-35 { color: #c678dd; }
@@ -116,28 +263,40 @@
   @media (max-width: 760px) {
     #wrapper { flex-direction: column; }
     #handle  { display: none; }
-    #term, #side { flex: 1 1 50%; }
+    #term-pane, #side { flex: 1 1 50%; }
   }
 </style>
 </head>
 <body>
 <div id="wrapper">
-  <div id="term">
-    <div id="watermark">HOL&nbsp;Light</div>
-    <pre id="output"></pre>
-    <div id="prompt-row">
-      <span id="prompt">#</span>
-      <textarea id="userinput" class="disabled" rows="1">Booting kernel…</textarea>
+  <div id="term-pane">
+    <div id="watermark">HOL&nbsp;Light in a web browser</div>
+    <div id="term">
+      <pre id="output"></pre>
+      <div id="prompt-row">
+        <span id="prompt">#</span>
+        <textarea id="userinput" class="disabled" rows="1">Booting kernel…</textarea>
+      </div>
+    </div>
+    <div id="term-controls">
+      <button id="btn-save" type="button" title="Save inputs as hol-light-web.ml" aria-label="Save inputs">💾</button>
+      <button id="btn-settings" type="button" title="Settings" aria-label="Settings">⚙</button>
+      <button id="btn-help" type="button" title="About" aria-label="About">?</button>
     </div>
   </div>
   <div id="handle"></div>
   <div id="side">
     <div class="sidebar-header">
-      <h3>HOL Light</h3>
+      <h3>HOL Light in a web browser</h3>
       <p class="subtitle">
         Built from
         <a href="https://github.com/jrh13/hol-light/commit/9b510bc76da4cecf6e509be44d327c9236ec273f"
            target="_blank" rel="noopener">jrh13/hol-light @ 9b510bc</a>.
+      </p>
+      <p class="subtitle">
+        Source:
+        <a href="https://github.com/aqjune/hol-light-web"
+           target="_blank" rel="noopener">aqjune/hol-light-web</a>.
       </p>
     </div>
     <h4>Keyboard shortcuts</h4>
@@ -169,6 +328,11 @@ let mythm = top_thm();;">Goal stack: existential</li>
   INDUCT_TAC THEN ASM_REWRITE_TAC[NSUM_CLAUSES_NUMSEG] THEN ARITH_TAC);;">Sum 1..n by induction</li>
       <li data-code="needs &quot;Library/prime.ml&quot;;;
 prove (`coprime(15,28)`, CONV_TAC COPRIME_CONV);;">loadt + coprime test</li>
+      <li data-code="loadt &quot;Library/words.ml&quot;;;
+let bv_add_mul_distrib = prove
+ (`word_mul (x:(N)word) (word_add y z) =
+   word_add (word_mul x y) (word_mul x z)`,
+  CONV_TAC WORD_RULE);;">Distributivity of bit-vector add and mul</li>
       <li data-code="let golden = new_definition
   `golden = (&1 + sqrt(&5)) / &2`;;">Define a constant</li>
       <li data-code="let fib = define
@@ -183,6 +347,13 @@ REWRITE_CONV[size; ARITH]
   `size (Node (Leaf 1) (Node (Leaf 2) (Leaf 3)))`;;">Define a new type: binary tree</li>
       <li data-code="help &quot;ARITH_TAC&quot;;;">help</li>
     </ul>
+    <h4>References</h4>
+    <ul class="refs">
+      <li><a href="https://hol-light.github.io/references/HTML/index.html"
+             target="_blank" rel="noopener">Reference Manual</a></li>
+      <li><a href="https://hol-light.github.io/tutorial/HTML/tutorial.html"
+             target="_blank" rel="noopener">HOL Light Tutorial</a></li>
+    </ul>
     <h4>Heads up</h4>
     <p>There is no interrupt in this interface — a runaway proof
     (e.g. a non-terminating <code>REWRITE_CONV</code>) cannot be
@@ -196,6 +367,47 @@ REWRITE_CONV[size; ARITH]
   </div>
 </div>
 <div id="status-bar">Spawning Web Worker…</div>
+
+<dialog id="dlg-settings" class="app-dialog">
+  <form method="dialog">
+    <h3>Settings</h3>
+    <label>
+      Max output lines:
+      <input id="cfg-max-lines" type="number" min="100" max="100000" step="100">
+    </label>
+    <fieldset>
+      <legend>Color mode</legend>
+      <label><input type="radio" name="cfg-theme" value="dark">Dark</label>
+      <label><input type="radio" name="cfg-theme" value="light">Light</label>
+    </fieldset>
+    <menu>
+      <button value="cancel">Cancel</button>
+      <button id="cfg-save" value="save">Save</button>
+    </menu>
+  </form>
+</dialog>
+
+<dialog id="dlg-help" class="app-dialog">
+  <form method="dialog">
+    <h3>About</h3>
+    <p>This is <strong>HOL Light</strong> running entirely in your
+      browser.  The OCaml toplevel and HOL Light kernel are compiled
+      to JavaScript with
+      <a href="https://ocsigen.org/js_of_ocaml/" target="_blank" rel="noopener">js_of_ocaml</a>
+      and run in a Web Worker; the page just streams its output and
+      forwards your input.  No proofs are sent to a server.</p>
+    <p><strong>Loading extra libraries.</strong>
+      <code>loadt&nbsp;"Library/words.ml";;</code> (and <code>loads</code>,
+      <code>needs</code>) fetch the file over HTTP from this page's
+      mirror of the
+      <a href="https://github.com/jrh13/hol-light" target="_blank" rel="noopener">jrh13/hol-light</a>
+      repo, then evaluate it in the toplevel with output streaming live.
+      The first fetch is cached, so re-loading the same file is a no-op.</p>
+    <menu>
+      <button value="ok">Close</button>
+    </menu>
+  </form>
+</dialog>
 
 <script>
 (() => {
@@ -234,17 +446,84 @@ REWRITE_CONV[size; ARITH]
     return html;
   }
 
+  // -------- Settings (persisted in localStorage) --------
+  const Settings = (() => {
+    const KEY = 'hol-settings';
+    const DEFAULTS = { maxLines: 3000, theme: 'dark' };
+    let cur = { ...DEFAULTS };
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) cur = { ...DEFAULTS, ...JSON.parse(raw) };
+    } catch (_) {}
+    function save() {
+      try { localStorage.setItem(KEY, JSON.stringify(cur)); } catch (_) {}
+    }
+    return {
+      get: () => ({ ...cur }),
+      set(patch) { cur = { ...cur, ...patch }; save(); },
+    };
+  })();
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+  applyTheme(Settings.get().theme);
+
   // -------- Output sink --------
   // Each chunk arrives with a stream tag.  We merge consecutive chunks of
-  // the same stream into one <span> so DOM growth is bounded.
+  // the same stream into one <span> so DOM growth is bounded.  Each span
+  // also tracks its own line count, so when total lines crosses the user's
+  // cap we can drop whole spans from the front and keep ANSI markup on
+  // everything that remains visible.
   let lastSpan = null, lastStream = null;
+  let totalLines = 0;
+  // Cap the per-span line count so trim granularity stays fine even when
+  // a single stream emits a long contiguous run.
+  const MAX_LINES_PER_SPAN = 200;
+
+  function newSpan(stream) {
+    const span = document.createElement('span');
+    span.className = stream;
+    span._lines = 0;
+    output.appendChild(span);
+    return span;
+  }
+  function countLines(text) {
+    // Number of '\n' characters; matches how the trim cap is described.
+    let n = 0;
+    for (let i = 0; i < text.length; i++) if (text.charCodeAt(i) === 10) n++;
+    return n;
+  }
+  function trimToCap() {
+    const cap = Settings.get().maxLines;
+    while (totalLines > cap && output.firstChild &&
+           output.firstChild !== lastSpan) {
+      const dropped = output.firstChild._lines || 0;
+      output.removeChild(output.firstChild);
+      totalLines -= dropped;
+    }
+    // If everything that's left is the active span and it's still over,
+    // drop full chunks of leading text from it.  Coloring on those bytes
+    // is lost (we flatten this one span's text), but it's the only span
+    // that exists — granularity here is fine.
+    if (totalLines > cap && lastSpan) {
+      let txt = lastSpan.textContent;
+      while (totalLines > cap) {
+        const i = txt.indexOf('\n');
+        if (i === -1) break;
+        txt = txt.slice(i + 1);
+        totalLines -= 1;
+        lastSpan._lines -= 1;
+      }
+      lastSpan.textContent = txt;
+    }
+  }
+
   function append(stream, text) {
     const wasNearBottom =
       term.scrollHeight - term.scrollTop - term.clientHeight < 80;
-    if (stream !== lastStream) {
-      lastSpan = document.createElement('span');
-      lastSpan.className = stream;
-      output.appendChild(lastSpan);
+    if (stream !== lastStream ||
+        (lastSpan && lastSpan._lines >= MAX_LINES_PER_SPAN)) {
+      lastSpan = newSpan(stream);
       lastStream = stream;
     }
     if (stream === 'caml' || stream === 'stdout' || stream === 'stderr') {
@@ -252,17 +531,26 @@ REWRITE_CONV[size; ARITH]
     } else {
       lastSpan.appendChild(document.createTextNode(text));
     }
+    const lines = countLines(text);
+    lastSpan._lines += lines;
+    totalLines += lines;
+    if (totalLines > Settings.get().maxLines) trimToCap();
     if (wasNearBottom) term.scrollTop = term.scrollHeight;
   }
   function appendMeta(text) {
     lastStream = null;
-    const span = document.createElement('span');
-    span.className = 'meta';
-    span.textContent = text;
-    output.appendChild(span);
+    lastSpan = newSpan('meta');
+    lastSpan.textContent = text;
+    const lines = countLines(text);
+    lastSpan._lines += lines;
+    totalLines += lines;
+    if (totalLines > Settings.get().maxLines) trimToCap();
     term.scrollTop = term.scrollHeight;
   }
-  function clearOutput() { output.textContent = ''; lastSpan = null; lastStream = null; }
+  function clearOutput() {
+    output.textContent = '';
+    lastSpan = null; lastStream = null; totalLines = 0;
+  }
 
   // -------- Worker plumbing --------
   let worker = null;
@@ -315,6 +603,12 @@ REWRITE_CONV[size; ARITH]
     term.scrollTop = term.scrollHeight;
   }
 
+  // Running log of every phrase submitted this session, used by the Save
+  // button to dump a self-contained .ml file.  Independent of the output
+  // pane (which can be trimmed) and of localStorage history (which spans
+  // sessions and includes never-submitted edits).
+  const submittedInputs = [];
+
   function execute() {
     if (!ready || busy) return;
     let code = userinput.value;
@@ -323,6 +617,7 @@ REWRITE_CONV[size; ARITH]
     const trimmed = code.trimEnd();
     if (!trimmed.endsWith(';;')) code = trimmed + ';;';
     History.push(userinput.value);
+    submittedInputs.push(code);
     // Echo input as a "sharp" line so the look matches the OCaml toplevel.
     append('sharp', userinput.value + '\n');
     userinput.value = '';
@@ -363,12 +658,56 @@ REWRITE_CONV[size; ARITH]
   History.load();
 
   // -------- Examples --------
+  // Surface each example's source as a native tooltip so users can preview
+  // the commands before clicking.
+  for (const li of document.querySelectorAll('#examples li[data-code]')) {
+    li.title = li.dataset.code;
+  }
   document.getElementById('examples').addEventListener('click', (ev) => {
     const li = ev.target.closest('li[data-code]');
     if (!li || !ready) return;
     userinput.value = li.dataset.code;
     autoresize();
     userinput.focus();
+  });
+
+  // -------- Settings & About dialogs --------
+  const dlgSettings = document.getElementById('dlg-settings');
+  const dlgHelp     = document.getElementById('dlg-help');
+  const cfgMaxLines = document.getElementById('cfg-max-lines');
+  document.getElementById('btn-settings').addEventListener('click', () => {
+    const s = Settings.get();
+    cfgMaxLines.value = s.maxLines;
+    for (const r of dlgSettings.querySelectorAll('input[name="cfg-theme"]')) {
+      r.checked = (r.value === s.theme);
+    }
+    dlgSettings.showModal();
+  });
+  dlgSettings.addEventListener('close', () => {
+    if (dlgSettings.returnValue !== 'save') return;
+    const n = Math.max(100, Math.min(100000, parseInt(cfgMaxLines.value, 10) || 3000));
+    const themeRadio = dlgSettings.querySelector('input[name="cfg-theme"]:checked');
+    const theme = themeRadio ? themeRadio.value : 'dark';
+    Settings.set({ maxLines: n, theme });
+    applyTheme(theme);
+    if (totalLines > n) trimToCap();
+  });
+  document.getElementById('btn-help').addEventListener('click', () => {
+    dlgHelp.showModal();
+  });
+  document.getElementById('btn-save').addEventListener('click', () => {
+    const text = submittedInputs
+      .map((src, i) => '(***** Input ' + (i + 1) + ' *****)\n' + src + '\n')
+      .join('');
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'hol-light-web.ml';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
   });
 
   // -------- Keymap (mirrors lwt_toplevel) --------
@@ -412,7 +751,7 @@ REWRITE_CONV[size; ARITH]
   // -------- Resize handle --------
   (() => {
     const handle = document.getElementById('handle');
-    const left = $('term'), right = $('side'), wrap = $('wrapper');
+    const left = $('term-pane'), right = $('side'), wrap = $('wrapper');
     let dragging = false;
     handle.addEventListener('mousedown', (e) => {
       e.preventDefault(); dragging = true;
