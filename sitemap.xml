@@ -1,0 +1,21 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for page in site.pages %}
+  {% if page.url contains '.xml' or page.url contains '.css' or page.url contains '.js' %}{% continue %}{% endif %}
+  <url>
+    <loc>{{ site.url | append: page.url | replace: '.md', '.html' }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+  </url>
+  {% endfor %}
+  <url>
+    <loc>{{ site.url }}/posts/2021-10-4.the-select-story.html</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ site.url }}/hol-light-web/index.html</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+  </url>
+</urlset>
