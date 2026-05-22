@@ -38,6 +38,7 @@
     --btn-bg: rgba(255,255,255,0.06);
     --btn-bg-hover: rgba(255,255,255,0.14);
     --backdrop: rgba(0,0,0,0.55);
+    --bg-input-echo: rgba(255,255,255,0.05);
   }
   [data-theme="light"] {
     --bg-app: #f6f6f7;
@@ -67,6 +68,7 @@
     --btn-bg: rgba(0,0,0,0.05);
     --btn-bg-hover: rgba(0,0,0,0.1);
     --backdrop: rgba(0,0,0,0.4);
+    --bg-input-echo: rgba(0,0,0,0.045);
   }
 
   html, body {
@@ -121,8 +123,18 @@
     font-size: 13px; line-height: 1.25;
     white-space: pre-wrap; word-break: break-word;
   }
-  #output .sharp  { color: var(--fg-input); font-weight: bold; }
-  #output .sharp::before { content: "# "; color: var(--fg-dim); }
+  /* Render input echoes as a block so the highlight fills the full line(s)
+     instead of hugging just the typed characters.  Padding extends the tint
+     to the terminal's left/right gutters; a small vertical margin separates
+     the block from the surrounding output bands. */
+  #output .sharp  {
+    display: block;
+    color: var(--fg-input); font-weight: bold;
+    background: var(--bg-input-echo);
+    margin: 2px -20px;
+    padding: 1px 20px;
+  }
+  #output .sharp::before { content: "# "; color: var(--fg-dim); font-weight: normal; }
   #output .caml   { color: var(--caml); }
   #output .stdout { color: var(--fg-output); }
   #output .stderr { color: var(--stderr); }
@@ -618,8 +630,10 @@ REWRITE_CONV[size; ARITH]
     if (!trimmed.endsWith(';;')) code = trimmed + ';;';
     History.push(userinput.value);
     submittedInputs.push(code);
-    // Echo input as a "sharp" line so the look matches the OCaml toplevel.
-    append('sharp', userinput.value + '\n');
+    // Echo input as a "sharp" block so the look matches the OCaml toplevel.
+    // The .sharp span is display:block, so we don't append a trailing '\n' —
+    // the block already starts a new line of its own.
+    append('sharp', userinput.value);
     userinput.value = '';
     autoresize();
     busy = true;
