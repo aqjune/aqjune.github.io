@@ -5,7 +5,8 @@
 <li>
     <strong>Towards Removing Undef Values From LLVM IR.</strong><br/>
     Pedro Lobo, John McIver, George Mitenkov, <b>Juneyoung Lee</b>, Kirshanthan Sundararajah, Nuno P. Lopes.<br/>
-    PLDI 2026.<br/>
+    PLDI 2026. (<a href="https://doi.org/10.1145/3808250">doi</a>)<br/>
+    <span style="color:red">Recipient of Distinguished Paper Award.</span><br/>
 </li>
 
 <li>
@@ -54,7 +55,7 @@
     N. P. Lopes, <b>Juneyoung Lee</b>, C-K. Hur, Z. Liu, J. Regehr.<br/>
     PLDI 2021. (<a href="https://dl.acm.org/doi/10.1145/3453483.3454030">doi</a>)<br/>
     https://alive2.llvm.org , https://github.com/AliveToolkit/alive2/<br/>
-    Recipient of Distinguished Paper Award.<br/>
+    <span style="color:red">Recipient of Distinguished Paper Award.</span><br/>
 </li>
 
 <li>
