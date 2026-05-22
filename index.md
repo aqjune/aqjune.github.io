@@ -10,6 +10,7 @@ I received Ph.D. from [Software Foundations Lab](https://sf.snu.ac.kr/),
 - ORCID: [0000-0002-8152-9330](https://orcid.org/0000-0002-8152-9330)
 
 **News**
+- May. 22, 2026: The paper "Towards Removing Undef Values From LLVM IR" received a Distinguished Paper Award from PLDI'26!
 - Apr. 13, 2026: A paper "Towards Removing Undef Values From LLVM IR" was accepted to PLDI'26!
 - Apr. 9, 2026: A workshop talk "s2n-bignum-bench: A practical benchmark for evaluating low-level code reasoning of LLMs" was accepted to AIPV'26!
 
