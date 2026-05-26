@@ -460,8 +460,8 @@ REWRITE_CONV[size; ARITH]
 
   // -------- Settings (persisted in localStorage) --------
   const Settings = (() => {
-    const KEY = 'hol-settings';
-    const DEFAULTS = { maxLines: 3000, theme: 'dark' };
+    const KEY = 'hol-settings-20260525';
+    const DEFAULTS = { maxLines: 500, theme: 'dark' };
     let cur = { ...DEFAULTS };
     try {
       const raw = localStorage.getItem(KEY);
@@ -699,7 +699,7 @@ REWRITE_CONV[size; ARITH]
   });
   dlgSettings.addEventListener('close', () => {
     if (dlgSettings.returnValue !== 'save') return;
-    const n = Math.max(100, Math.min(100000, parseInt(cfgMaxLines.value, 10) || 3000));
+    const n = Math.max(100, Math.min(100000, parseInt(cfgMaxLines.value, 10) || 500));
     const themeRadio = dlgSettings.querySelector('input[name="cfg-theme"]:checked');
     const theme = themeRadio ? themeRadio.value : 'dark';
     Settings.set({ maxLines: n, theme });
