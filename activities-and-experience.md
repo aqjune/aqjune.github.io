@@ -29,6 +29,7 @@ I also participated in developing [Alive2](https://github.com/AliveToolkit/alive
 
 ## Awards and Honors
 
+- 2026 PLDI, **Distinguished Paper Award**
 - 2021 College of Engineering, SNU, **Best Thesis Award**
 - 2021 PLDI, **Distinguished Paper Award**
 - 2020 Virtual LLVM Developers' Meeting, Keynote Talk ([link](https://llvm.org/devmtg/2020-09/schedule/))
