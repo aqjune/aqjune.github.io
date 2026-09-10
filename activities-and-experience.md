@@ -11,6 +11,10 @@ I actively sent patches to LLVM
 to (1) make LLVM IR semantics abide by a formal definition, and (2) resolve performance issues of the generated machine code after my patches.
 I also participated in developing [Alive2](https://github.com/AliveToolkit/alive2) ([https://alive2.llvm.org/](https://alive2.llvm.org/)), an automatic optimization validator ([pull requests](https://github.com/AliveToolkit/alive2/pulls?q=is%3Apr+author%3Aaqjune)).
 
+After joining Amazon, I worked on high-performance & verified assembly implementations for cryptography, [s2n-bignum](https://github.com/awslabs/s2n-bignum).
+More recently, I am contributing to [Strata](https://github.com/strata-org/Strata), a general-purpose formal verification framework.
+I also sometimes contribute to [HOL Light](https://hol-light.github.io/).
+
 ## Industrial Experience
 
 - Oct, 2022 ~ now: Applied Scientist, AWS (Austin, TX, USA)
