@@ -3,6 +3,12 @@
 <ol>
 
 <li>
+    <strong>s2n-bignum-bench: A practical benchmark for evaluating low-level code reasoning of LLMs.</strong><br/>
+    Balaji Rao, Soonho Kong, <b>Juneyoung Lee</b>, Carlo Lipizzi<br/>
+    NeurIPS 2026 Evaluations & Datasets Track.<br/>
+</li>
+
+<li>
     <strong>Towards Removing Undef Values From LLVM IR.</strong><br/>
     Pedro Lobo, John McIver, George Mitenkov, <b>Juneyoung Lee</b>, Kirshanthan Sundararajah, Nuno P. Lopes.<br/>
     PLDI 2026. (<a href="https://doi.org/10.1145/3808250">doi</a>)<br/>
