@@ -24,6 +24,7 @@ I also sometimes contribute to [HOL Light](https://hol-light.github.io/).
 
 ## Professional Activities
 
+- 2027: CPP (External Reviewer)
 - 2026: CAV (Program Committee), FM (Program Committee)
 - 2024-2025: OOPSLA (Review Committee)
 - 2024: VSTTE (Program Committee), ATVA (Artifact Evaluation Committee)
